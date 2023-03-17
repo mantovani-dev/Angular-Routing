@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 
-export class ListComponent implements OnInit {
-  title = 'project';
+export class RegisterComponent implements OnInit {
+  title = 'project'; // Variável não está sendo utilizada
+
+  index: number = 0; // Variável para pegar o index caso esteja editando
 
   formStudent: FormGroup = new FormGroup({
     name: new FormControl(null, Validators.required),
@@ -19,11 +22,13 @@ export class ListComponent implements OnInit {
   })
 
   students:any[]=[
-   
+
   ]
 
   isEditing:boolean = false;
   currentIndex:number = 0
+
+  constructor(private route: ActivatedRoute) { } // Construtor para injetar a classe ActivatedRoute
 
   getLocalStorage() {
     return JSON.parse(String(localStorage.getItem('db_student'))) ?? []
@@ -33,13 +38,16 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.route.snapshot.paramMap.has('index')) // Verifica se há o parâmetro index na rota
+      this.index = Number(this.route.snapshot.paramMap.get('index')); // Define this.index com o index que vem na rota
+
     this.students = this.getLocalStorage()
   }
 
   reset() {
     this.isEditing = false
   }
-  
+
   save() {
     if (this.isEditing) {
       this.students[this.currentIndex] = this.formStudent.value
@@ -52,7 +60,7 @@ export class ListComponent implements OnInit {
     this.formStudent.reset()
     console.log("form:", this.formStudent.value)
   }
-  
+
   toggleEdit(student:any, index:number) {
     this.isEditing = true;
     this.currentIndex = index;
