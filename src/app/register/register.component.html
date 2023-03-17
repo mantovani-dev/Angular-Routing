@@ -1,0 +1,16 @@
+<div class="form">
+  <div class="formContent">
+    <header class="formHeader">
+      <h2>{{isEditing ? "Editar Aluno" : "Cadastrar Aluno"}}</h2>
+    </header>
+    <form (submit)="save()" [formGroup]="formStudent" class="inputs">
+      <input formControlName="name" type="text" data-index="new" class="formField" placeholder="Nome do Aluno" required>
+      <input formControlName="email" type="email" class="formField" placeholder="E-mail do Aluno" required>
+      <input formControlName="matriculation" type="text" class="formField" placeholder="Matrícula do Aluno" required>
+      <input formControlName="school" type="text" class="formField" placeholder="Escola do Aluno" required>
+      <input formControlName="average" type="number" class="formField" placeholder="Média Final" required>
+      <button type="submit" class="button green">Salvar</button>
+      <button type="reset" class="button blue">Cancelar</button>
+    </form>
+  </div>
+</div>
