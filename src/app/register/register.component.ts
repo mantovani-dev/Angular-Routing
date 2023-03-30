@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ListComponent } from '../list/list.component';
 
 @Component({
   selector: 'app-register',
@@ -28,7 +29,10 @@ export class RegisterComponent implements OnInit {
   isEditing:boolean = false;
   currentIndex:number = 0
 
-  constructor(private route: ActivatedRoute) { } // Construtor para injetar a classe ActivatedRoute
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+    ) { }
 
   getLocalStorage() {
     return JSON.parse(String(localStorage.getItem('db_student'))) ?? []
@@ -42,6 +46,10 @@ export class RegisterComponent implements OnInit {
       this.index = Number(this.route.snapshot.paramMap.get('index')); // Define this.index com o index que vem na rota
 
     this.students = this.getLocalStorage()
+  }
+
+  goToList() {
+    this.router.navigate(['/list'])
   }
 
   reset() {
@@ -59,6 +67,7 @@ export class RegisterComponent implements OnInit {
     this.setLocalStorage(this.students)
     this.formStudent.reset()
     console.log("form:", this.formStudent.value)
+    this.goToList()
   }
 
   toggleEdit(student:any, index:number) {
