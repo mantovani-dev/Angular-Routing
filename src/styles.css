@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Isso retira as margens brancas ao redor do corpo do html */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
