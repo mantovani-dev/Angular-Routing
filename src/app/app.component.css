@@ -13,7 +13,7 @@ body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: Tahoma, sans-serif;
+    font-family: Helvetica, sans-serif;
     position:relative;
     background-color: rgb(198, 238, 253);
 }
@@ -44,3 +44,32 @@ th, h2 {
         font-size: 1.5rem;
     }
 }
+
+/* NavBar*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .active {
+    background-color: #0491aa;
+  }
