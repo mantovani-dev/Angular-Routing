@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { ListComponent } from '../list/list.component'; // Componente não está sendo utilizado, pode remover essa importação
 
 @Component({
   selector: 'app-register',
@@ -10,9 +9,8 @@ import { ListComponent } from '../list/list.component'; // Componente não está
 })
 
 export class RegisterComponent implements OnInit {
-  title = 'project'; // Variável não está sendo utilizada
 
-  index: number = 0; // Variável para pegar o index caso esteja editando
+  index: number = 0;
 
   formStudent: FormGroup = new FormGroup({
     name: new FormControl(null, Validators.required),
@@ -42,12 +40,8 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    // A LINHA 48 E 49 SERVEM PARA A EDIÇÃO DO ALUNO,
-    // SE ESTIVER EDITANDO VOCÊ TERÁ O INDEX DA LISTA NA VARIÁVEL INDEX DECLARADA NA LINHA 15,
-    // A PARTIR DAQUI É COM VOCÊ
-    if (this.route.snapshot.paramMap.has('index')) // Verifica se há o parâmetro index na rota
-      this.index = Number(this.route.snapshot.paramMap.get('index')); // Define this.index com o index que vem na rota
-
+    if (this.route.snapshot.paramMap.has('index'))
+      this.index = Number(this.route.snapshot.paramMap.get('index'));
     this.students = this.getLocalStorage()
   }
 
