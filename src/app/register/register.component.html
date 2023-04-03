@@ -1,21 +1,18 @@
-<!-- Header não é necessário -->
-<!-- <header>
-  <h1 class="header-title">Sistema Escolar Unificado</h1>
-</header> -->
-<main> <!-- Tag de main sem fechamento -->
-<div class="form">
-  <div class="formContent">
-    <header class="formHeader">
-      <h2>{{isEditing ? "Editar Aluno" : "Cadastrar Aluno"}}</h2>
-    </header>
-    <form (submit)="save()" [formGroup]="formStudent" class="inputs">
-      <input formControlName="name" type="text" data-index="new" class="formField" placeholder="Nome do Aluno" required>
-      <input formControlName="email" type="email" class="formField" placeholder="E-mail do Aluno" required>
-      <input formControlName="matriculation" type="text" class="formField" placeholder="Matrícula do Aluno" required>
-      <input formControlName="school" type="text" class="formField" placeholder="Escola do Aluno" required>
-      <input formControlName="average" type="number" class="formField" placeholder="Média Final" required>
-      <button type="submit" class="button green">Salvar</button>
-      <button type="reset" class="button blue">Cancelar</button> <!-- Refletir se esse botão serve só para limpar, ou voltar à página lista -->
-    </form>
+<main>
+  <div class="form">
+    <div class="formContent">
+      <header class="formHeader">
+        <h2>{{isEditing ? "Editar Aluno" : "Cadastrar Aluno"}}</h2>
+      </header>
+      <form (submit)="save()" [formGroup]="formStudent" class="inputs">
+        <input formControlName="name" type="text" data-index="new" class="formField" placeholder="Nome do Aluno" required>
+        <input formControlName="email" type="email" class="formField" placeholder="E-mail do Aluno" required>
+        <input formControlName="matriculation" type="text" class="formField" placeholder="Matrícula do Aluno" required>
+        <input formControlName="school" type="text" class="formField" placeholder="Escola do Aluno" required>
+        <input formControlName="average" type="number" class="formField" placeholder="Média Final" required>
+        <button type="submit" class="button green">Salvar</button>
+        <button type="reset" class="button blue">Cancelar</button>
+      </form>
+    </div>
   </div>
-</div>
+</main>
