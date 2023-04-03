@@ -1,33 +1,29 @@
-<!-- Header não é necessário -->
-<!-- <header>
-  <h1 class="header-title">Sistema Escolar Unificado</h1>
-</header> -->
 <main>
-<table id="tableStudent" class="records">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>E-mail</th>
-      <th>Matrícula</th>
-      <th>Escola</th>
-      <th>Média Final</th>
-      <th>Resultado</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let student of students;let i = index">
-      <td>{{student.name}}</td>
-      <td>{{student.email}}</td>
-      <td>{{student.matriculation}}</td>
-      <td>{{student.school}}</td>
-      <td>{{student.average}}</td>
-      <td>{{student.average >=7 ? "Aprovado" : "Reprovado"}}</td>
-      <td>
-        <button [routerLink]="'/edit/' + i" type="button" class="button blue">Editar</button>
-        <!-- <button (click)="toggleEdit(student, i)" type="button" class="button blue">Editar</button> --> <!-- Parou de funcionar -->
-        <button (click)="delete(i)" type="button" class="button red">Excluir</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <table id="tableStudent" class="records">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Matrícula</th>
+        <th>Escola</th>
+        <th>Média Final</th>
+        <th>Resultado</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students;let i = index">
+        <td>{{student.name}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.matriculation}}</td>
+        <td>{{student.school}}</td>
+        <td>{{student.average}}</td>
+        <td>{{student.average >=7 ? "Aprovado" : "Reprovado"}}</td>
+        <td>
+          <button [routerLink]="'/edit/' + i" type="button" class="button blue">Editar</button>
+          <button (click)="delete(i)" type="button" class="button red">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>
